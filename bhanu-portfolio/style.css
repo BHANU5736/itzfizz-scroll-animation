@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #0f0f0f;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Animated glow background */
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #00ffcc55, transparent 70%);
+    animation: moveGlow 6s infinite alternate ease-in-out;
+    z-index: -1;
+}
+
+@keyframes moveGlow {
+    from {
+        transform: translate(-100px, -50px);
+    }
+    to {
+        transform: translate(100px, 50px);
+    }
+}
+
+h1 {
+    font-size: 60px;
+    margin: 0;
+}
+
+h2 {
+    font-size: 30px;
+    color: #00ffcc;
+}
+
+p {
+    font-size: 18px;
+    opacity: 0.8;
+}
+.section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.section p {
+    max-width: 600px;
+    opacity: 0.8;
+}
+.btn {
+    margin-top: 20px;
+    padding: 12px 30px;
+    border: none;
+    background: #00ffcc;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background: white;
+    transform: scale(1.05);
+}

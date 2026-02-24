@@ -1,38 +1,35 @@
 gsap.registerPlugin(ScrollTrigger);
-
-// Intro animation
-gsap.from(".headline", {
+gsap.from("h1", {
+    y: -100,
     opacity: 0,
-    y: 60,
     duration: 1
 });
 
-gsap.from(".stat", {
+gsap.from("h2", {
     opacity: 0,
-    y: 30,
-    duration: 0.8,
-    stagger: 0.2,
+    duration: 1,
     delay: 0.5
 });
 
-// Scroll animation
-gsap.to(".visual img", {
-    y: -200,
-    scale: 1.1,
-    ease: "none",
-    scrollTrigger: {
-        trigger: ".hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: 1
-    }
-});
-gsap.to(".headline", {
+gsap.from("p", {
+    y: 50,
     opacity: 0,
-    scrollTrigger: {
-        trigger: ".hero",
-        start: "center top",
-        end: "bottom top",
-        scrub: true
-    }
+    duration: 1,
+    delay: 1
+});
+gsap.utils.toArray(".section").forEach(section => {
+    gsap.from(section, {
+        opacity: 0,
+        y: 100,
+        duration: 1,
+        scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+        }
+    });
+});
+document.querySelector(".btn").addEventListener("click", () => {
+    document.querySelector(".projects").scrollIntoView({
+        behavior: "smooth"
+    });
 });
